@@ -21,6 +21,9 @@
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
     <!-- <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br /> -->
-    <%= link_to "Sign in with  Google", omniauth_authorize_path(resource_name, provider) %><br />
+    <!-- <%= link_to "Sign in with  Google", omniauth_authorize_path(resource_name, provider) %><br /> -->
+    <div id='gc'>
+      click to sync with Google calender
+    </div>
   <% end -%>
 <% end -%>

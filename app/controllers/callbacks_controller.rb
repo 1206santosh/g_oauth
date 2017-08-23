@@ -1,13 +1,18 @@
 class CallbacksController < Devise::OmniauthCallbacksController
 
-  def google_oauth2
-     
-@user = User.find_for_google_oauth2(request.env["omniauth.auth"])
-if @user
-  sign_in @user
+def google_oauth2
+
+  #  User.find_for_google_oauth2(request.env["omniauth.auth"])
+  a=Oauthen.new
+  auth=request.env["omniauth.auth"]
+  a.token=auth['credentials']['token']
+  a.refresh_token=auth['credentials']['refresh_token']
+  a.save
+  current_user.oauthen_ids=a.id
+  puts "=================================="
+  puts "done"
+
   redirect_to root_path
-else
-  redirect_to new_user_session_path, notice: 'Access Denied.'
-end
+
 end
 end

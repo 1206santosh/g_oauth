@@ -251,12 +251,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :google_oauth2,'366795280395-6j2npbkr777sk4gs6pd4gq9pcqku7nnk.apps.googleusercontent.com',
-  '9CjhvxaRU4mmKvy5UpkqacHg',
-  { access_type: "offline",
-    prompt: "consent",
-    select_account: true,
-    scope: 'userinfo.email,calendar' }
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -266,7 +261,12 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
+  config.omniauth :google_oauth2, '366795280395-6ekvasg9qv58uj2dcoj3iqtog6kika1j.apps.googleusercontent.com',
+  'leDdXdyNiikMN76_E8HlfJK3',
+    { access_type: "offline",
+      prompt: "consent",
+      select_account: true,
+      scope: 'userinfo.email,calendar' }
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.

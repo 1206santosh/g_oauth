@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
-
+root 'home#index'
 resources :home do
   collection do
      get 'view_all_calender'
      get 'add_event'
+     get 'get_event'
      get 'add_calender'
   end
 end

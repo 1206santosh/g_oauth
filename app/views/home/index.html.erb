@@ -1,1 +1,36 @@
 <h1>Home#index</h1>
+
+
+<div id='gc'>
+click
+</div>
+
+
+<%if current_user.oauthens.length==0%>
+<script>
+var url='users/auth/google_oauth2'
+
+$('#gc').on('click',function(){
+
+var nwin=window.open(url,'name','height=400px width=400px')
+if(window.focus){
+  nwin.focus();
+}
+})
+
+</script>
+<%else%>
+<%=current_user.oauthens[0].token%>
+<%end%>
+
+
+<script>
+$(document).ready(function () {
+           if (window.opener && window.opener !== window) {
+               window.opener.location = window.opener.location;
+               window.close();
+           }
+       });
+
+
+</script>
